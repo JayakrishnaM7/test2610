@@ -1,0 +1,15 @@
+spring: 
+  api: 
+    payment: 
+      context-path: /CorporateCurrentAccount/{corporatecurrentaccountId}/Retrieve
+      hosturl: /payment
+      jolt-filename: payment443597-jolt.json
+    paymentexecution: 
+      context-path: /PaymentExecution/{paymentexecutionId}/Retrieve
+      hosturl: /payment
+      jolt-filename: paymentexecution847356-jolt.json
+  datasource: 
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: ${mysql_pwd}
+    url: jdbc:mysql://${mysql_url}:3306/camunda
+    username: ${mysql_user}

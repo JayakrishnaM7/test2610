@@ -1,0 +1,42 @@
+management: 
+  endpoint: 
+    metrics: 
+      enabled: true
+    prometheus: 
+      enabled: true
+  endpoints: 
+    web: 
+      exposure: 
+        include: "*"
+  metrics: 
+    export: 
+      prometheus: 
+        enabled: true
+spring: 
+  application: 
+    name: test251022
+  cloud: 
+    config: 
+      failFast: false
+      retry: 
+        maxAttempts: 20
+      uri: ${CONFIG_SERVER_URI}
+  profiles: 
+    active: ${PROFILE:dev}
+  sleuth: 
+    sampler: 
+      percentage: 1
+  api: 
+    payment: 
+      context-path: /CorporateCurrentAccount/{corporatecurrentaccountId}/Retrieve
+      hosturl: /payment
+      jolt-filename: payment443597-jolt.json
+    paymentexecution: 
+      context-path: /PaymentExecution/{paymentexecutionId}/Retrieve
+      hosturl: /payment
+      jolt-filename: paymentexecution847356-jolt.json
+  datasource: 
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: ${mysql_pwd}
+    url: jdbc:mysql://${mysql_url}:3306/camunda
+    username: ${mysql_user}
